@@ -91,6 +91,7 @@
 
     [statusItem setHighlightMode:YES];
     [statusItem setImage:statusImage];
+    [statusItem setAlternateImage:[NSImage imageNamed:@"icon_highlight"]];
 
     // Set separators
     [statusMenu insertItem:[NSMenuItem separatorItem] atIndex:2];
