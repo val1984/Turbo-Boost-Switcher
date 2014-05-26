@@ -84,7 +84,7 @@
     statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     
     NSBundle *bundle = [NSBundle mainBundle];
-    statusImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"icon" ofType:@"png"]];
+    statusImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"icon_on" ofType:@"png"]];
     
     //[statusItem setMenu:statusMenu];
     [statusItem setToolTip:@"Turbo Boost Switcher"];
@@ -135,26 +135,14 @@
 - (void) updateStatus {
     
     BOOL isOn = ![SystemCommands isModuleLoaded];
-
-    NSAttributedString *titleString;
-
-    // Attributes for title string
-    NSFont *labelFont = [NSFont fontWithName:@"Helvetica" size:11];
     
     if (isOn) {
-        titleString = [[NSAttributedString alloc] initWithString:@"On " attributes:@{
-            NSFontAttributeName : labelFont,
-            }];
+        [statusItem setImage:[NSImage imageNamed:@"icon_on"]];
         [[statusMenu itemAtIndex:3] setTitle:NSLocalizedString(@"disable_menu", nil)];
     } else {
-        titleString = [[NSAttributedString alloc] initWithString:@"Off " attributes:@{
-                                            NSFontAttributeName : labelFont,
-                       }];
+        [statusItem setImage:[NSImage imageNamed:@"icon_off"]];
         [[statusMenu itemAtIndex:3] setTitle:NSLocalizedString(@"enable_menu", nil)];
     }
-    
-    // Refresh the title
-    [statusItem setAttributedTitle:titleString];
         
     // Updates the sensor readings
     [self updateSensorValues];
