@@ -120,7 +120,7 @@
     [rl addTimer:self.refreshTimer forMode:NSRunLoopCommonModes];
     
     // Suscribe to sleep and wake up notifications
-    [self fileNotifications];
+    //[self fileNotifications];
     
 
 }
