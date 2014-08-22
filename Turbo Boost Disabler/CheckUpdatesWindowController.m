@@ -68,7 +68,7 @@
     // Download the version descriptor
     NSURL *url = [NSURL URLWithString:@"http://www.rugarciap.com/tbs_version"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10];
-    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
+    [NSURLConnection connectionWithRequest:request delegate:self];
 }
 
 
